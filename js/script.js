@@ -3,7 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            path: `./img/avatar${avatar[index]}.jpg`,
+            // path: `./img/avatar${avatar[index]}.jpg`,
             contacts: [
                 {
                     id: 1,
