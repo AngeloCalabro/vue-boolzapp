@@ -30,7 +30,7 @@
                     <!-- immagine profilo e nome -->
                     <div class="d-flex align-items-center m-1">
                         <div class="profile-image">
-                            <img class="img-fluid rounded-circle" src="./img/img/avatar_io.jpg" alt="io">
+                            <img class="img-fluid rounded-circle" src="./img/avatar_io.jpg" alt="io">
                         </div>
                         <div>Name</div>
                     </div>
@@ -65,21 +65,23 @@
                 </div>
                 <!-- contatti -->
                 <div id="list-person">
-                    <div id="contact-person">
-                        <!-- lista con immagine profilo, nome, data ed ora -->
+
+                    <!-- lista con immagine profilo, nome, data ed ora -->
+                    <div v-for="(value, index) in contacts" id="contact">
                         <div class="d-flex justify-content-between m-1">
                             <div class="d-flex align-items-center">
                                 <div class="profile-image">
-                                    <img class="img-fluid rounded-circle" src="./img/img/avatar_1.jpg" alt="avatar1">
+                                    <img class="img-fluid rounded-circle" :src="path" :alt="contacts[index].avatar">
                                 </div>
                                 <div class="m-1">
-                                    <div>Name</div>
-                                    <div class="my-grey my-f-xs">data</div>
+                                    <div>{{contacts[index].name}}</div>
+                                    <div class="my-grey my-f-xs">{{contacts[index].messages[0].message}}</div>
                                 </div>
                             </div>
-                            <div class="my-grey my-f-xs">Ora</div>
+                            <div class="my-grey my-f-xs">{{contacts[index].messages[0].date}}</div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -92,7 +94,7 @@
                         <!-- immagine profilo, nome e data -->
                         <div class="d-flex align-items-center m-1">
                             <div class="profile-image">
-                                <img class="img-fluid rounded-circle" src="./img/img/avatar_1.jpg" alt="avatar1">
+                                <img class="img-fluid rounded-circle" src="./img/avatar_1.jpg" alt="avatar1">
                             </div>
                             <div class="m-1">
                                 <div>Name</div>

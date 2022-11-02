@@ -96,6 +96,7 @@ main {
 #list-person {
     width: 100%;
     height: calc(100% - 200px);
+    overflow: auto;
 }
 
 /* icone parte left */
@@ -126,17 +127,17 @@ i {
     height: 100%;
 }
 
-#contact-person {
+#contact {
     height: 70px;
     width: 100%;
     background-color: var(--white);
-    overflow: auto;
 }
 
 #chat {
     width: 100%;
     height: calc(100% - 140px);
-    background-image: url(../img/img/mine.jpg);
+    background-image: url(../img/mine.jpg);
+    overflow: auto;
 }
 
 /* icone parte right */
