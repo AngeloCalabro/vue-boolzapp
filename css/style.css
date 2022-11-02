@@ -158,10 +158,19 @@ i {
 /* chat */
 .send {
     background-color: var(--light-green);
-    border-radius: 20px;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 45%;
 }
 
 .received {
     background-color: var(--white);
-    border-radius: 20px;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 45%;
+}
+
+#hour-data {
+    bottom: 5px;
+    right: 10px;
 }

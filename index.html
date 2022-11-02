@@ -71,14 +71,15 @@
                         <div class="d-flex justify-content-between m-1">
                             <div class="d-flex align-items-center">
                                 <div class="profile-image">
-                                    <img class="img-fluid rounded-circle" :src="path" :alt="contacts[index].avatar">
+                                    <img class="img-fluid rounded-circle"
+                                        :src="`img/avatar${contacts[index].avatar}.jpg`" :alt="contacts[index].name">
                                 </div>
                                 <div class="m-1">
                                     <div>{{contacts[index].name}}</div>
                                     <div class="my-grey my-f-xs">{{contacts[index].messages[0].message}}</div>
                                 </div>
                             </div>
-                            <div class="my-grey my-f-xs">{{contacts[index].messages[0].date}}</div>
+                            <div class="my-grey my-f-xs">{{contacts[index].messages[0].date.substring(11,16)}}</div>
                         </div>
                     </div>
 
@@ -94,11 +95,12 @@
                         <!-- immagine profilo, nome e data -->
                         <div class="d-flex align-items-center m-1">
                             <div class="profile-image">
-                                <img class="img-fluid rounded-circle" src="./img/avatar_1.jpg" alt="avatar1">
+                                <img class="img-fluid rounded-circle" :src="`img/avatar${contacts[0].avatar}.jpg`"
+                                    :alt="contacts[0].name">
                             </div>
                             <div class="m-1">
-                                <div>Name</div>
-                                <div class="my-grey my-f-xs">Ultimo messaggio inviato</div>
+                                <div>{{contacts[0].name}}</div>
+                                <div class="my-grey my-f-xs">{{contacts[0].messages[0].date}}</div>
                             </div>
                         </div>
                         <!-- icone profilo account -->
@@ -115,8 +117,15 @@
                         </div>
                     </div>
                 </div>
-                <div id="chat">
-
+                <div id="chat" class="flex-column">
+                    <div class="send my-3 mx-5 position-relative">
+                        <span>Ciao</span>
+                        <span id="hour-data" class="position-absolute my-grey my-f-xs">ora</span>
+                    </div>
+                    <div class="received my-3 mx-5 position-relative">
+                        <span>Bye</span>
+                        <span id="hour-data" class="position-absolute my-grey my-f-xs">ora</span>
+                    </div>
                 </div>
 
                 <!-- riga scrivi msg -->
