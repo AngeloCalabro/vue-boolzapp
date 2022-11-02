@@ -7,7 +7,7 @@
 }
 
 * {
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
@@ -16,10 +16,14 @@
     border: 1px solid black;
 }
 
+
+.profile-img {
+    height: 100%;
+}
+
 #app {
     width: 100%;
     height: 100vh;
-    position: relative;
 }
 
 header {
@@ -30,20 +34,55 @@ header {
 main {
     width: 70%;
     height: 90%;
-    display: flex;
-    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 footer {
-    height: calc(100% - 145px);
+    height: calc(100vh - 145px);
 }
 
 .left {
     width: 40%;
     height: 100%;
+}
+
+#personal-account {
+    height: 70px;
+    width: 100%;
+    background-color: var(--light-grey);
+}
+
+#notification-msg {
+    height: 80px;
+    width: 100%;
+    background-color: var(--azure);
+}
+
+#search-contact {
+    height: 50px;
+    width: 100%;
+    background-color: var(--white);
+}
+
+#contact-person {
+    height: 80px;
+    width: 100%;
+    background-color: var(--white);
+}
+
+#chat {
+    width: 100%;
+    height: calc(100% - 150px);
+    background-image: url(../img/img/mine.jpg);
+}
+
+#send-msg {
+    height: 70px;
+    width: 100%;
+    background-color: var(--white);
 }
 
 .right {
@@ -52,9 +91,9 @@ footer {
 }
 
 .sent {
-    background-color: var(--light-green)
+    background-color: var(--light-green);
 }
 
 .received {
-    background-color: var(--white)
+    background-color: var(--white);
 }

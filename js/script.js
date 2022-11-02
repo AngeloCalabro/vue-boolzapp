@@ -1,5 +1,6 @@
 contacts: [
     {
+        id: 1,
         name: 'Michele',
         avatar: '_1',
         visible: true,
@@ -22,6 +23,7 @@ contacts: [
         ],
     },
     {
+        id: 2,
         name: 'Fabio',
         avatar: '_2',
         visible: true,
@@ -44,6 +46,7 @@ contacts: [
         ],
     },
     {
+        id: 3,
         name: 'Samuele',
         avatar: '_3',
         visible: true,
@@ -66,6 +69,7 @@ contacts: [
         ],
     },
     {
+        id: 4,
         name: 'Alessandro B.',
         avatar: '_4',
         visible: true,
@@ -83,6 +87,7 @@ contacts: [
         ],
     },
     {
+        id: 5,
         name: 'Alessandro L.',
         avatar: '_5',
         visible: true,
@@ -100,6 +105,7 @@ contacts: [
         ],
     },
     {
+        id: 6,
         name: 'Claudia',
         avatar: '_6',
         visible: true,
@@ -122,6 +128,7 @@ contacts: [
         ],
     },
     {
+        id: 7,
         name: 'Federico',
         avatar: '_7',
         visible: true,
@@ -139,6 +146,7 @@ contacts: [
         ],
     },
     {
+        id: 8,
         name: 'Davide',
         avatar: '_8',
         visible: true,
