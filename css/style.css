@@ -6,6 +6,11 @@
     --light-grey: #e9ebeb;
     --grey: #B1B1B1;
     --light-yellow: #F3EEEA;
+    --font-xs: 0.9rem;
+}
+
+.my-f-xs {
+    font-size: var(--font-xs);
 }
 
 .my-bg-light-yellow {
@@ -55,40 +60,6 @@ footer {
     height: calc(100vh - 145px);
 }
 
-/* icone */
-i {
-    color: var(--grey);
-}
-
-#lens {
-    width: 20%;
-    line-height: 50px;
-}
-
-#serch-lens {
-    width: 80%;
-    height: 100%;
-
-}
-
-#icons {
-    width: 20%;
-    height: 100%;
-    line-height: 70px;
-}
-
-#icon-audio {
-    width: 10%;
-    height: 100%;
-    line-height: 70px;
-}
-
-#send-msg {
-    width: 80%;
-    height: 100%;
-}
-
-/* main */
 main {
     width: 70%;
     height: 90%;
@@ -98,6 +69,7 @@ main {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+/* parte sinistra */
 .left {
     width: 40%;
     height: 100%;
@@ -126,7 +98,34 @@ main {
     height: calc(100% - 200px);
 }
 
+/* icone parte left */
+i {
+    color: var(--grey);
+}
+
+#lens {
+    width: 20%;
+    line-height: 50px;
+}
+
+#serch-lens-input {
+    width: 80%;
+    height: 80%;
+    border: 0px solid;
+}
+
+#icons {
+    width: 20%;
+    height: 100%;
+    line-height: 70px;
+}
+
 /* parte destra */
+.right {
+    width: 60%;
+    height: 100%;
+}
+
 #contact-person {
     height: 70px;
     width: 100%;
@@ -140,21 +139,28 @@ main {
     background-image: url(../img/img/mine.jpg);
 }
 
-#send-msg {
-    height: 70px;
+/* icone parte right */
+#icon-audio {
+    width: 10%;
+    height: 100%;
+    line-height: 70px;
+}
+
+#send-msg-input {
+    height: 50px;
     width: 100%;
     background-color: var(--white);
+    border: 0px solid;
 }
 
-.right {
-    width: 60%;
-    height: 100%;
-}
 
-.sent {
+/* chat */
+.send {
     background-color: var(--light-green);
+    border-radius: 20px;
 }
 
 .received {
     background-color: var(--white);
+    border-radius: 20px;
 }

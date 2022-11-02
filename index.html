@@ -21,7 +21,9 @@
     <div id="app" class="position-relative">
         <header></header>
         <main class="position-absolute d-flex text-black">
-            <!-- parte sinistra -->
+
+
+            <!-- LEFT PART -->
             <div class="left">
                 <!-- riga account personale -->
                 <div id="personal-account" class="d-flex justify-content-between align-items-center">
@@ -41,7 +43,7 @@
                             <i class="fa-solid fa-message px-2 fs-4"></i>
                         </a>
                         <a href="#">
-                            <i class="fa-solid fa-dice-three px-2 fs-4"></i>
+                            <i class="fa-solid fa-bars px-2 fs-4"></i>
                         </a>
                     </div>
                 </div>
@@ -58,17 +60,30 @@
                 <!-- riga cerca contatto -->
                 <div id="search-contact" class="d-flex justify-content-center align-items-center">
                     <i id="lens" class="fa-solid fa-magnifying-glass text-center"></i>
-                    <input id="serch-lens" type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input id="serch-lens-input" type="text" placeholder=" Cerca o inizia una nuova chat">
                 </div>
                 <!-- contatti -->
                 <div id="list-person">
                     <div id="contact-person">
-
+                        <!-- lista con immagine profilo, nome, data ed ora -->
+                        <div class="d-flex justify-content-between m-1">
+                            <div class="d-flex align-items-center">
+                                <div class="profile-image">
+                                    <img class="img-fluid rounded-circle" src="./img/img/avatar_1.jpg" alt="avatar1">
+                                </div>
+                                <div class="m-1">
+                                    <div>Name</div>
+                                    <div class="my-grey my-f-xs">data</div>
+                                </div>
+                            </div>
+                            <div class="my-grey my-f-xs">Ora</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- parte destra -->
+
+            <!-- RIGHT PART -->
             <div class="right">
                 <div id="contact-person">
                     <!-- riga account -->
@@ -78,31 +93,33 @@
                             <div class="profile-image">
                                 <img class="img-fluid rounded-circle" src="./img/img/avatar_1.jpg" alt="avatar1">
                             </div>
-                            <div>
+                            <div class="m-1">
                                 <div>Name</div>
-                                <div>data</div>
+                                <div class="my-grey my-f-xs">Ultimo messaggio inviato</div>
                             </div>
                         </div>
                         <!-- icone profilo account -->
                         <div class="d-flex justify-content-between align-items-center m-1">
                             <a href="#">
-                                <i class="fa-solid fa-magnifying-glass text-center fs-4"></i>
+                                <i class="fa-solid fa-magnifying-glass text-center fs-4 px-2"></i>
                             </a>
                             <a href="#">
                                 <i class="fa-solid fa-paperclip px-2 fs-4"></i>
                             </a>
                             <a href="#">
-                                <i class="fa-solid fa-dice-three px-2 fs-4"></i>
+                                <i class="fa-solid fa-bars px-2 fs-4"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div id="chat"></div>
+                <div id="chat">
+
+                </div>
 
                 <!-- riga scrivi msg -->
                 <div id="send" class="d-flex justify-content-center align-items-center my-bg-light-yellow">
                     <i id="icons" class="fa-solid fa-face-smile text-center fs-4"></i>
-                    <input id="send-msg" type="text" placeholder="Scrivi il tuo messaggio">
+                    <input id="send-msg-input" type="text" placeholder=" Scrivi un messaggio">
                     <i id="icon-audio" class="fa-solid fa-microphone text-center fs-4"></i>
                 </div>
             </div>
