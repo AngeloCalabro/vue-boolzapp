@@ -1,0 +1,60 @@
+:root {
+    --petrol: #009688;
+    --light-green: #D5F9BA;
+    --white: #FFFFFF;
+    --azure: #8EDAFC;
+    --light-grey: #e9ebeb;
+}
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.debug {
+    border: 1px solid black;
+}
+
+#app {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+header {
+    background-color: var(--petrol);
+    height: 145px;
+}
+
+main {
+    width: 70%;
+    height: 90%;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+footer {
+    height: calc(100% - 145px);
+}
+
+.left {
+    width: 40%;
+    height: 100%;
+}
+
+.right {
+    width: 60%;
+    height: 100%;
+}
+
+.sent {
+    background-color: var(--light-green)
+}
+
+.received {
+    background-color: var(--white)
+}
