@@ -4,6 +4,20 @@
     --white: #FFFFFF;
     --azure: #8EDAFC;
     --light-grey: #e9ebeb;
+    --grey: #B1B1B1;
+    --light-yellow: #F3EEEA;
+}
+
+.my-bg-light-yellow {
+    background-color: var(--light-yellow);
+}
+
+.my-azure {
+    color: var(--azure);
+}
+
+.my-grey {
+    color: var(--grey);
 }
 
 * {
@@ -16,9 +30,15 @@
     border: 1px solid black;
 }
 
+.profile-image {
+    width: 50px;
+    height: 50px;
+}
 
-.profile-img {
-    height: 100%;
+.image-notification {
+    width: 50px;
+    height: 50px;
+    background-color: var(--white);
 }
 
 #app {
@@ -31,6 +51,44 @@ header {
     height: 145px;
 }
 
+footer {
+    height: calc(100vh - 145px);
+}
+
+/* icone */
+i {
+    color: var(--grey);
+}
+
+#lens {
+    width: 20%;
+    line-height: 50px;
+}
+
+#serch-lens {
+    width: 80%;
+    height: 100%;
+
+}
+
+#icons {
+    width: 20%;
+    height: 100%;
+    line-height: 70px;
+}
+
+#icon-audio {
+    width: 10%;
+    height: 100%;
+    line-height: 70px;
+}
+
+#send-msg {
+    width: 80%;
+    height: 100%;
+}
+
+/* main */
 main {
     width: 70%;
     height: 90%;
@@ -38,10 +96,6 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-footer {
-    height: calc(100vh - 145px);
 }
 
 .left {
@@ -67,15 +121,22 @@ footer {
     background-color: var(--white);
 }
 
+#list-person {
+    width: 100%;
+    height: calc(100% - 200px);
+}
+
+/* parte destra */
 #contact-person {
-    height: 80px;
+    height: 70px;
     width: 100%;
     background-color: var(--white);
+    overflow: auto;
 }
 
 #chat {
     width: 100%;
-    height: calc(100% - 150px);
+    height: calc(100% - 140px);
     background-image: url(../img/img/mine.jpg);
 }
 

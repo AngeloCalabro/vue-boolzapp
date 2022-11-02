@@ -21,32 +21,96 @@
     <div id="app" class="position-relative">
         <header></header>
         <main class="position-absolute d-flex text-black">
-
+            <!-- parte sinistra -->
             <div class="left">
+                <!-- riga account personale -->
                 <div id="personal-account" class="d-flex justify-content-between align-items-center">
-                    <div class="d-flex align-items-center profile-img">
-                        <img class="img-fluid rounded-circle w-25" src="./img/img/avatar_io.jpg" alt="io">
+                    <!-- immagine profilo e nome -->
+                    <div class="d-flex align-items-center m-1">
+                        <div class="profile-image">
+                            <img class="img-fluid rounded-circle" src="./img/img/avatar_io.jpg" alt="io">
+                        </div>
                         <div>Name</div>
                     </div>
-                    <div class="profile-icon d-flex justify-content-between align-items-center">
-                        <i class="fa-solid fa-circle-notch"></i>
-                        <i class="fa-solid fa-message"></i>
-                        <i class="fa-solid fa-dice-three"></i>
+                    <!-- icone profilo personale -->
+                    <div class="d-flex justify-content-between align-items-center m-1">
+                        <a href="#">
+                            <i class="fa-solid fa-circle-notch px-2 fs-4"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-solid fa-message px-2 fs-4"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-solid fa-dice-three px-2 fs-4"></i>
+                        </a>
                     </div>
                 </div>
-                <div id="notification-msg"></div>
-                <div id="search-contact"></div>
-                <div id="contact-person"></div>
+                <!-- riga disattiva notifica msg -->
+                <div id="notification-msg" class="d-flex align-items-center">
+                    <div class="image-notification d-flex justify-content-center align-items-center rounded-circle m-1">
+                        <i class="fa-solid fa-bell-slash my-azure fs-4"></i>
+                    </div>
+                    <div class="m-1">
+                        <div>Ricevi notifiche di nuovi messaggi</div>
+                        <div><a href="">Attiva notifiche desktop</a></div>
+                    </div>
+                </div>
+                <!-- riga cerca contatto -->
+                <div id="search-contact" class="d-flex justify-content-center align-items-center">
+                    <i id="lens" class="fa-solid fa-magnifying-glass text-center"></i>
+                    <input id="serch-lens" type="text" placeholder="Cerca o inizia una nuova chat">
+                </div>
+                <!-- contatti -->
+                <div id="list-person">
+                    <div id="contact-person">
+
+                    </div>
+                </div>
             </div>
 
+            <!-- parte destra -->
             <div class="right">
-                <div id="contact-person"></div>
+                <div id="contact-person">
+                    <!-- riga account -->
+                    <div id="personal-account" class="d-flex justify-content-between align-items-center">
+                        <!-- immagine profilo, nome e data -->
+                        <div class="d-flex align-items-center m-1">
+                            <div class="profile-image">
+                                <img class="img-fluid rounded-circle" src="./img/img/avatar_1.jpg" alt="avatar1">
+                            </div>
+                            <div>
+                                <div>Name</div>
+                                <div>data</div>
+                            </div>
+                        </div>
+                        <!-- icone profilo account -->
+                        <div class="d-flex justify-content-between align-items-center m-1">
+                            <a href="#">
+                                <i class="fa-solid fa-magnifying-glass text-center fs-4"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-solid fa-paperclip px-2 fs-4"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-solid fa-dice-three px-2 fs-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <div id="chat"></div>
-                <div id="send-msg"></div>
+
+                <!-- riga scrivi msg -->
+                <div id="send" class="d-flex justify-content-center align-items-center my-bg-light-yellow">
+                    <i id="icons" class="fa-solid fa-face-smile text-center fs-4"></i>
+                    <input id="send-msg" type="text" placeholder="Scrivi il tuo messaggio">
+                    <i id="icon-audio" class="fa-solid fa-microphone text-center fs-4"></i>
+                </div>
             </div>
         </main>
         <footer></footer>
     </div>
+    <!-- VUE js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- Script JS-->
     <script src="./js/script.js"></script>
 </body>
