@@ -218,6 +218,12 @@ createApp({
                 return message.status === 'received';
             })
             return arraymsg[arraymsg.length - 1]
+        },
+        removeChat(chat) {
+            this.contacts.splice(chat, 1)
+        },
+        removeMsg(message) {
+            this.contacts.splice(message, 1)
         }
     }
 

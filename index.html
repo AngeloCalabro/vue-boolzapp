@@ -75,13 +75,20 @@
                                 <img class="img-fluid rounded-circle" :src="`img/avatar${item.avatar}.jpg`"
                                     :alt="item.name">
                             </div>
-                            <div class="m-1">
+                            <div class="mx-2">
                                 <div>{{item.name}}</div>
                                 <div class="my-f-xs">{{getLastMessage(item).message}}
                                 </div>
                             </div>
                             <div class="position-absolute hour-data my-f-xs">
                                 {{getLastMessage(item).date.substring(11,16)}}
+                            </div>
+                            <div class="position-absolute my-f-xs delete">
+                                <i class="fa-solid fa-chevron-down"></i>
+                                <div class="position-absolute box-menu">
+                                    <div class="p-1">Info messaggio</div>
+                                    <div class="p-1" @click.stop="removeChat(item)">Cancella chat</div>
+                                </div>
                             </div>
                         </div>
 
@@ -130,6 +137,13 @@
                         v-for="(msg, index) in contacts[activIndex].messages" :key="index">
                         <span>{{msg.message}}</span>
                         <span class="position-absolute hour-data my-grey my-f-xs">{{msg.date.substring(11,16)}}</span>
+                        <div class="position-absolute my-f-xs delete">
+                            <i class="fa-solid fa-chevron-down"></i>
+                            <div class="position-absolute box-menu">
+                                <div class="p-1">Info messaggio</div>
+                                <div class="p-1" @click.stop="removeMsg(msg)">Cancella messaggi</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
