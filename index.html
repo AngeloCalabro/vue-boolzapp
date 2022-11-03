@@ -20,8 +20,9 @@
 <body>
     <div id="app" class="position-relative">
         <header></header>
-        <main class="position-absolute d-flex text-black">
 
+        <!-- app a centro pagina -->
+        <main class="position-absolute d-flex text-black">
 
             <!-- LEFT PART -->
             <div class="left">
@@ -61,25 +62,27 @@
                 <div id="search-contact" class="d-flex justify-content-center align-items-center">
                     <i id="lens" class="fa-solid fa-magnifying-glass text-center"></i>
                     <input id="serch-lens-input" type="text" placeholder="Cerca o inizia una nuova chat"
-                        class="form-control m-1">
+                        class="form-control m-1" v-model.trim="searchTerm">
                 </div>
                 <!-- contatti -->
                 <div id="list-person">
 
                     <!-- lista con immagine profilo, nome, data ed ora -->
-                    <div v-for="(value, index) in contacts" id="contact">
-                        <div class="d-flex justify-content-between m-1">
+                    <div :class="{'active': index === activIndex}" v-for="(item, index) in filteredContacts"
+                        :key="item.id" class="contact" @click="getChat(item.id)">
+                        <div class="d-flex justify-content-between">
                             <div class="d-flex align-items-center">
                                 <div class="profile-image">
-                                    <img class="img-fluid rounded-circle"
-                                        :src="`img/avatar${contacts[index].avatar}.jpg`" :alt="contacts[index].name">
+                                    <img class="img-fluid rounded-circle" :src="`img/avatar${item.avatar}.jpg`"
+                                        :alt="item.name">
                                 </div>
                                 <div class="m-1">
-                                    <div>{{contacts[index].name}}</div>
-                                    <div class="my-grey my-f-xs">{{contacts[index].messages[0].message}}</div>
+                                    <div>{{item.name}}</div>
+                                    <div class="my-grey my-f-xs">{{getLastMessage(item).message}}
+                                    </div>
                                 </div>
                             </div>
-                            <div class="my-grey my-f-xs">{{contacts[index].messages[0].date.substring(11,16)}}</div>
+                            <div class="my-grey my-f-xs">{{getLastMessage(item).date.substring(11,16)}}</div>
                         </div>
                     </div>
 
@@ -95,12 +98,15 @@
                         <!-- immagine profilo, nome e data -->
                         <div class="d-flex align-items-center m-1">
                             <div class="profile-image">
-                                <img class="img-fluid rounded-circle" :src="`img/avatar${contacts[0].avatar}.jpg`"
-                                    :alt="contacts[0].name">
+                                <img class="img-fluid rounded-circle"
+                                    :src="`img/avatar${contacts[activIndex].avatar}.jpg`"
+                                    :alt="contacts[activIndex].name">
                             </div>
                             <div class="m-1">
-                                <div>{{contacts[0].name}}</div>
-                                <div class="my-grey my-f-xs">{{contacts[0].messages[0].date}}</div>
+                                <div>{{contacts[activIndex].name}}</div>
+                                <div class="my-grey my-f-xs">Ultimo accesso
+                                    {{contacts[activIndex].messages[contacts[activIndex].messages.length
+                                    -1].date}}</div>
                             </div>
                         </div>
                         <!-- icone profilo account -->
@@ -117,21 +123,21 @@
                         </div>
                     </div>
                 </div>
-                <div id="chat" class="flex-column">
-                    <div class="send my-3 mx-5 position-relative">
-                        <span>Ciao</span>
-                        <span id="hour-data" class="position-absolute my-grey my-f-xs">ora</span>
-                    </div>
-                    <div class="received my-3 mx-5 position-relative">
-                        <span>Bye</span>
-                        <span id="hour-data" class="position-absolute my-grey my-f-xs">ora</span>
+                <!-- CHAT -->
+                <div id="chat">
+                    <div class="sent my-3 mx-5 position-relative" :class="msg.status"
+                        v-for="(msg, index) in contacts[activIndex].messages" :key="index">
+                        <span>{{msg.message}}</span>
+                        <span id="hour-data"
+                            class="position-absolute my-grey my-f-xs">{{msg.date.substring(11,16)}}</span>
                     </div>
                 </div>
 
                 <!-- riga scrivi msg -->
                 <div id="send" class="d-flex justify-content-center align-items-center my-bg-light-yellow">
                     <i id="icons" class="fa-solid fa-face-smile text-center fs-4"></i>
-                    <input id="send-msg-input" type="text" placeholder="Scrivi un messaggio" class="form-control m-1">
+                    <input id="send-msg-input" type="text" placeholder="Scrivi un messaggio" class="form-control m-1"
+                        v-model.trim="newmessage" @keyup.enter="sendMessage()">
                     <i id="icon-audio" class="fa-solid fa-microphone text-center fs-4"></i>
                 </div>
             </div>

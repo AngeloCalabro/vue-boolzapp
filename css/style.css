@@ -6,7 +6,7 @@
     --light-grey: #e9ebeb;
     --grey: #B1B1B1;
     --light-yellow: #F3EEEA;
-    --font-xs: 0.9rem;
+    --font-xs: 0.7rem;
 }
 
 .my-f-xs {
@@ -127,17 +127,10 @@ i {
     height: 100%;
 }
 
-#contact {
+.contact {
     height: 70px;
     width: 100%;
     background-color: var(--white);
-}
-
-#chat {
-    width: 100%;
-    height: calc(100% - 140px);
-    background-image: url(../img/mine.jpg);
-    overflow: auto;
 }
 
 /* icone parte right */
@@ -156,21 +149,37 @@ i {
 
 
 /* chat */
-.send {
-    background-color: var(--light-green);
-    border-radius: 1rem;
-    padding: 1rem;
-    width: 45%;
-}
-
-.received {
-    background-color: var(--white);
-    border-radius: 1rem;
-    padding: 1rem;
-    width: 45%;
+#chat {
+    width: 100%;
+    height: calc(100% - 140px);
+    background-image: url(../img/mine.jpg);
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 #hour-data {
     bottom: 5px;
     right: 10px;
+}
+
+#chat .sent {
+    background-color: var(--light-green);
+    border-radius: 1rem;
+    padding: 1.2em;
+    width: 60%;
+    align-self: flex-end;
+}
+
+#chat .received {
+    background-color: var(--white);
+    border-radius: 1rem;
+    padding: 1.2rem;
+    width: 60%;
+    align-self: flex-start;
+}
+
+.active {
+    background-color: var(--grey);
+    color: var(--white)
 }

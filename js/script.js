@@ -3,6 +3,9 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            activIndex: 0,
+            newmessage: '',
+            searchTerm: '',
             contacts: [
                 {
                     id: 1,
@@ -176,8 +179,46 @@ createApp({
             ]
         }
     },
+    computed: {
+        filteredContacts() {
+            return this.contacts.filter((item) => {
+                const name = item.name.toLowerCase()
+                return name.includes(this.searchTerm.toLowerCase())
+            })
+        }
+    },
     methods: {
-
+        getChat(id) {
+            this.activIndex = this.contacts.findIndex((item) => parseInt(item.id) === parseInt(id));
+        },
+        sendMessage() {
+            if (!this.newmessage) return;
+            const d = new Date();
+            let newdate = d.toDateString();
+            const newSentMessage = {
+                date: newdate,
+                message: this.newmessage,
+                status: 'sent'
+            }
+            this.contacts[this.activIndex].messages.push(newSentMessage);
+            this.newmessage = '';
+            setTimeout(() => {
+                const d = new Date();
+                let newdate = d.toDateString();
+                const newReceivedMessage = {
+                    date: newdate,
+                    message: 'ok',
+                    status: 'received'
+                }
+                this.contacts[this.activIndex].messages.push(newReceivedMessage);
+            }, 1000)
+        },
+        getLastMessage(item) {
+            const arraymsg = item.messages.filter((message) => {
+                return message.status === 'received';
+            })
+            return arraymsg[arraymsg.length - 1]
+        }
     }
 
 }).mount('#app')
