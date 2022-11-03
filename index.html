@@ -69,21 +69,22 @@
 
                     <!-- lista con immagine profilo, nome, data ed ora -->
                     <div :class="{'active': index === activIndex}" v-for="(item, index) in filteredContacts"
-                        :key="item.id" class="contact" @click="getChat(item.id)">
-                        <div class="d-flex justify-content-between">
-                            <div class="d-flex align-items-center">
-                                <div class="profile-image">
-                                    <img class="img-fluid rounded-circle" :src="`img/avatar${item.avatar}.jpg`"
-                                        :alt="item.name">
-                                </div>
-                                <div class="m-1">
-                                    <div>{{item.name}}</div>
-                                    <div class="my-grey my-f-xs">{{getLastMessage(item).message}}
-                                    </div>
+                        :key="item.id" @click="getChat(item.id)" class="contact">
+                        <div class="position-relative h-100 d-flex align-items-center mx-1">
+                            <div class="profile-image">
+                                <img class="img-fluid rounded-circle" :src="`img/avatar${item.avatar}.jpg`"
+                                    :alt="item.name">
+                            </div>
+                            <div class="m-1">
+                                <div>{{item.name}}</div>
+                                <div class="my-f-xs">{{getLastMessage(item).message}}
                                 </div>
                             </div>
-                            <div class="my-grey my-f-xs">{{getLastMessage(item).date.substring(11,16)}}</div>
+                            <div class="position-absolute hour-data my-f-xs">
+                                {{getLastMessage(item).date.substring(11,16)}}
+                            </div>
                         </div>
+
                     </div>
 
                 </div>
@@ -128,8 +129,7 @@
                     <div class="sent my-3 mx-5 position-relative" :class="msg.status"
                         v-for="(msg, index) in contacts[activIndex].messages" :key="index">
                         <span>{{msg.message}}</span>
-                        <span id="hour-data"
-                            class="position-absolute my-grey my-f-xs">{{msg.date.substring(11,16)}}</span>
+                        <span class="position-absolute hour-data my-grey my-f-xs">{{msg.date.substring(11,16)}}</span>
                     </div>
                 </div>
 

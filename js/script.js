@@ -207,7 +207,7 @@ createApp({
                 let newdate = d.toDateString();
                 const newReceivedMessage = {
                     date: newdate,
-                    message: 'ok',
+                    message: 'Fatti i cazzi tuoi Alessandra',
                     status: 'received'
                 }
                 this.contacts[this.activIndex].messages.push(newReceivedMessage);
