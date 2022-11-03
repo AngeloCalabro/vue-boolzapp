@@ -194,7 +194,7 @@ createApp({
         sendMessage() {
             if (!this.newmessage) return;
             const d = new Date();
-            let newdate = d.toDateString();
+            let newdate = this.getFormattedDate(d);
             const newSentMessage = {
                 date: newdate,
                 message: this.newmessage,
@@ -204,26 +204,37 @@ createApp({
             this.newmessage = '';
             setTimeout(() => {
                 const d = new Date();
-                let newdate = d.toDateString();
+                let newdate = this.getFormattedDate(d);
                 const newReceivedMessage = {
                     date: newdate,
-                    message: 'Fatti i cazzi tuoi Alessandra',
+                    message: 'OPS',
                     status: 'received'
                 }
                 this.contacts[this.activIndex].messages.push(newReceivedMessage);
             }, 1000)
         },
         getLastMessage(item) {
-            const arraymsg = item.messages.filter((message) => {
-                return message.status === 'received';
-            })
+            const arraymsg = item.messages.filter((message) => message.status === 'received');
+            if (arraymsg.length == 0) {
+                return {
+                    date: '10/01/2020 00:00:00',
+                    message: '',
+                    status: 'received'
+                }
+            }
             return arraymsg[arraymsg.length - 1]
+
         },
-        removeChat(chat) {
-            this.contacts.splice(chat, 1)
+        getFormattedDate(date) {
+            return `${date.getDate() < 10 ? '0' + date.getDate() : date.getDate()}/${date.getMonth() < 10 ? '0' + date.getMonth() : date.getMonth()}/${date.getFullYear()} ${date.getHours() < 10 ? '0' + date.getHours() : date.getHours()}:${date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()}:${date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()}`;
         },
-        removeMsg(message) {
-            this.contacts.splice(message, 1)
+        removeChat() {
+            this.contacts[this.activIndex].visible = false;
+            this.contacts[this.activIndex].visible = '';
+        },
+        removeMsg(i) {
+            // this.contacts[this.activIndex].messages[i].show = false;
+            this.contacts[this.activIndex].messages[i].message = '';
         }
     }
 

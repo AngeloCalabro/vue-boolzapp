@@ -44,7 +44,7 @@
                             <i class="fa-solid fa-message px-2 fs-4"></i>
                         </a>
                         <a href="#">
-                            <i class="fa-solid fa-bars px-2 fs-4"></i>
+                            <i class="fa-solid fa-ellipsis-vertical px-2 fs-4"></i>
                         </a>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                                 <i class="fa-solid fa-chevron-down"></i>
                                 <div class="position-absolute box-menu">
                                     <div class="p-1">Info messaggio</div>
-                                    <div class="p-1" @click.stop="removeChat(item)">Cancella chat</div>
+                                    <div class="p-1" @click.stop="removeChat(i)">Cancella chat</div>
                                 </div>
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                                 <i class="fa-solid fa-paperclip px-2 fs-4"></i>
                             </a>
                             <a href="#">
-                                <i class="fa-solid fa-bars px-2 fs-4"></i>
+                                <i class="fa-solid fa-ellipsis-vertical px-2 fs-4"></i>
                             </a>
                         </div>
                     </div>
@@ -141,7 +141,7 @@
                             <i class="fa-solid fa-chevron-down"></i>
                             <div class="position-absolute box-menu">
                                 <div class="p-1">Info messaggio</div>
-                                <div class="p-1" @click.stop="removeMsg(msg)">Cancella messaggi</div>
+                                <div class="p-1" @click="removeMsg(i)">Cancella messaggi</div>
                             </div>
                         </div>
                     </div>
