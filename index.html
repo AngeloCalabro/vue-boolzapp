@@ -83,22 +83,13 @@
                             <div class="position-absolute hour-data my-f-xs">
                                 {{getLastMessage(item).date.substring(11,16)}}
                             </div>
-
-                            <!-- <i class="fa-solid fa-chevron-down position-absolute my-f-xs delete"
-                                @click="showOption(index)"></i>
-                            <div class="position-absolute my-f-xs delete" v-if="msgOpt.index === index && msgOpt.show">
-                                <div class="position-absolute box-menu">
-                                    <div class="p-1">Info contatto</div>
-                                    <div class="p-1" @click.stop="removeChat(item.id)">Cancella chat</div>
-                                </div>
-                            </div> -->
-                            <!-- <div class="position-absolute my-f-xs delete">
-                                <i class="fa-solid fa-chevron-down"></i>
-                                <div class="position-absolute box-menu">
+                            <div class="position-absolute my-f-xs delete">
+                                <i class="fa-solid fa-chevron-down" @click.stop="showListOption(index)" @></i>
+                                <div class="position-absolute box-menu" v-if="chatOpt.index === index && chatOpt.show">
                                     <div class="p-1">Info messaggio</div>
                                     <div class="p-1" @click.stop="removeChat(item.id)">Cancella chat</div>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
 
                     </div>

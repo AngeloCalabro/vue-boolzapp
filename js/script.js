@@ -10,6 +10,10 @@ createApp({
                 index: null,
                 show: false
             },
+            chatOpt: {
+                index: null,
+                show: false
+            },
             showChat: false,
             icons: [
                 '&#128512;',
@@ -306,6 +310,15 @@ createApp({
             } else {
                 this.msgOpt.index = i;
                 this.msgOpt.show = true;
+            }
+        },
+        showListOption(i) {
+            if (i === this.chatOpt.index && this.chatOpt.show) {
+                this.chatOpt.index = null;
+                this.chatOpt.show = false;
+            } else {
+                this.chatOpt.index = i;
+                this.chatOpt.show = true;
             }
         }
     }
