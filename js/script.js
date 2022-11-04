@@ -15,6 +15,7 @@ createApp({
                 show: false
             },
             showChat: false,
+            showemoji: false,
             icons: [
                 '&#128512;',
                 '&#128513;',
@@ -292,13 +293,12 @@ createApp({
                 }
             }
             return arraymsg[arraymsg.length - 1]
-
         },
         getFormattedDate(date) {
             return `${date.getDate() < 10 ? '0' + date.getDate() : date.getDate()}/${date.getMonth() < 10 ? '0' + date.getMonth() : date.getMonth()}/${date.getFullYear()} ${date.getHours() < 10 ? '0' + date.getHours() : date.getHours()}:${date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()}:${date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()}`;
         },
         removeChat(i) {
-            this.contacts[this.activIndex].splice(i, 1);
+            this.contacts[this.activIndex].remove(i, 1);
         },
         removeMsg(i) {
             this.contacts[this.activIndex].messages.splice(i, 1);
@@ -320,6 +320,9 @@ createApp({
                 this.chatOpt.index = i;
                 this.chatOpt.show = true;
             }
+        },
+        showEmoji() {
+            this.showemoji = !this.showemoji
         }
     }
 

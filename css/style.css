@@ -124,10 +124,12 @@ i {
     border: 0px solid;
 }
 
-#icons {
+.icons {
     width: 20%;
     height: 100%;
     line-height: 70px;
+    cursor: pointer;
+    position: relative;
 }
 
 /* parte destra */
@@ -212,4 +214,14 @@ i {
     top: 20px;
     right: 0;
     cursor: pointer;
+}
+
+.emoji {
+    background-color: red;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    bottom: 70px;
+    left: 10px;
+    z-index: 1000;
 }

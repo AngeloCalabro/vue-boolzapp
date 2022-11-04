@@ -69,7 +69,7 @@
 
                     <!-- lista con immagine profilo, nome, data ed ora -->
                     <div :class="{'active': index === activIndex}" v-for="(item, index) in filteredContacts"
-                        :key="item.id" @click.stop="getChat(item.id)" class="contact">
+                        :key="item.id" @click="getChat(item.id)" class="contact">
                         <div class="position-relative h-100 d-flex align-items-center mx-1">
                             <div class="profile-image">
                                 <img class="img-fluid rounded-circle" :src="`img/avatar${item.avatar}.jpg`"
@@ -84,7 +84,7 @@
                                 {{getLastMessage(item).date.substring(11,16)}}
                             </div>
                             <div class="position-absolute my-f-xs delete">
-                                <i class="fa-solid fa-chevron-down" @click.stop="showListOption(index)" @></i>
+                                <i class="fa-solid fa-chevron-down" @click.stop="showListOption(index)"></i>
                                 <div class="position-absolute box-menu" v-if="chatOpt.index === index && chatOpt.show">
                                     <div class="p-1">Info messaggio</div>
                                     <div class="p-1" @click.stop="removeChat(item.id)">Cancella chat</div>
@@ -157,7 +157,12 @@
 
                 <!-- riga scrivi msg -->
                 <div id="send" class="d-flex justify-content-center align-items-center my-bg-light-yellow">
-                    <i id="icons" class="fa-solid fa-face-smile text-center fs-4"></i>
+                    <div class="icons d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-face-smile text-center fs-4" @click="showEmoji()"></i>
+                        <div id="emoji" v-if="showemoji">
+                            <span v-for="(icon, index) in icons" :key="index" v-html="icons"></span>
+                        </div>
+                    </div>
                     <input id="send-msg-input" type="text" placeholder="Scrivi un messaggio" class="form-control m-1"
                         v-model.trim="newmessage" @keyup.enter="sendMessage()">
                     <i id="icon-audio" class="fa-solid fa-microphone text-center fs-4"></i>
