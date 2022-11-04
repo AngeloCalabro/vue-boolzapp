@@ -10,6 +10,53 @@ createApp({
                 index: null,
                 show: false
             },
+            showChat: false,
+            icons: [
+                '&#128512;',
+                '&#128513;',
+                '&#128514;',
+                '&#128515;',
+                '&#128516;',
+                '&#128517;',
+                '&#128518;',
+                '&#128519;',
+                '&#128521;',
+                '&#128522;',
+                '&#128523;',
+                '&#128524;',
+                '&#128525;',
+                '&#128526;',
+                '&#128528;',
+                '&#128529;',
+                '&#128530;',
+                '&#128536;',
+                '&#128545;',
+                '&#128548;',
+                '&#128561;',
+                '&#129315;',
+                '&#129299;',
+                '&#129319;',
+                '&#129321;',
+                '&#129325;',
+                '&#129488;',
+                '&#9996;',
+                '&#9995;',
+                '&#10024;',
+                '&#10062;',
+                '&#128064;',
+                '&#128077;',
+                '&#128079;',
+                '&#128152;',
+                '&#128149;',
+                '&#128156;',
+                '&#128158;',
+                '&#128584;',
+                '&#129310;',
+                '&#129505;',
+                '&#127802;',
+                '&#127801;',
+                '&#9749;'
+            ],
             contacts: [
                 {
                     id: 1,
@@ -194,6 +241,10 @@ createApp({
     methods: {
         getChat(id) {
             this.activIndex = this.contacts.findIndex((item) => parseInt(item.id) === parseInt(id));
+            this.changeView();
+        },
+        changeView() {
+
         },
         sendMessage() {
             if (!this.newmessage) return;
@@ -206,6 +257,12 @@ createApp({
             }
             this.contacts[this.activIndex].messages.push(newSentMessage);
             this.newmessage = '';
+
+            this.$nextTick(() => {
+                const el = this.$refs.msg[this.$refs, msg.length - 1];
+                el.scrollIntoView();
+            });
+
             setTimeout(() => {
                 const d = new Date();
                 let newdate = this.getFormattedDate(d);
@@ -215,6 +272,10 @@ createApp({
                     status: 'received'
                 }
                 this.contacts[this.activIndex].messages.push(newReceivedMessage);
+                this.$nextTick(() => {
+                    const el = this.$refs.msg[this.$refs, msg.length - 1];
+                    el.scrollIntoView();
+                });
             }, 1000)
         },
         getLastMessage(item) {

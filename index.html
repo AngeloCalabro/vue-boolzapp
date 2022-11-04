@@ -84,14 +84,14 @@
                                 {{getLastMessage(item).date.substring(11,16)}}
                             </div>
 
-                            <i class="fa-solid fa-chevron-down position-absolute my-f-xs delete"
+                            <!-- <i class="fa-solid fa-chevron-down position-absolute my-f-xs delete"
                                 @click="showOption(index)"></i>
                             <div class="position-absolute my-f-xs delete" v-if="msgOpt.index === index && msgOpt.show">
                                 <div class="position-absolute box-menu">
                                     <div class="p-1">Info contatto</div>
-                                    <div class="p-1" @click.stop="remove(index)">Cancella chat</div>
+                                    <div class="p-1" @click.stop="removeChat(item.id)">Cancella chat</div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- <div class="position-absolute my-f-xs delete">
                                 <i class="fa-solid fa-chevron-down"></i>
                                 <div class="position-absolute box-menu">
@@ -147,8 +147,10 @@
                 <!-- CHAT -->
                 <div id="chat">
                     <div class="sent my-3 mx-5 position-relative" :class="msg.status"
-                        v-for="(msg, index) in contacts[activIndex].messages" :key="index">
-                        <span>{{msg.message}}</span>
+                        v-for="(msg, index) in contacts[activIndex].messages" :key="index" ref="msg">
+                        <span v-html="msg.message">
+                            <!-- {{msg.message}} -->
+                        </span>
                         <span class="position-absolute hour-data my-grey my-f-xs">{{msg.date.substring(11,16)}}</span>
 
                         <i class="fa-solid fa-chevron-down position-absolute my-f-xs delete"
