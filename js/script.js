@@ -6,6 +6,10 @@ createApp({
             activIndex: 0,
             newmessage: '',
             searchTerm: '',
+            msgOpt: {
+                index: null,
+                show: false
+            },
             contacts: [
                 {
                     id: 1,
@@ -228,13 +232,20 @@ createApp({
         getFormattedDate(date) {
             return `${date.getDate() < 10 ? '0' + date.getDate() : date.getDate()}/${date.getMonth() < 10 ? '0' + date.getMonth() : date.getMonth()}/${date.getFullYear()} ${date.getHours() < 10 ? '0' + date.getHours() : date.getHours()}:${date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()}:${date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()}`;
         },
-        removeChat() {
-            this.contacts[this.activIndex].visible = false;
-            this.contacts[this.activIndex].visible = '';
+        removeChat(i) {
+            this.contacts[this.activIndex].splice(i, 1);
         },
         removeMsg(i) {
-            // this.contacts[this.activIndex].messages[i].show = false;
-            this.contacts[this.activIndex].messages[i].message = '';
+            this.contacts[this.activIndex].messages.splice(i, 1);
+        },
+        showOption(i) {
+            if (i === this.msgOpt.index && this.msgOpt.show) {
+                this.msgOpt.index = null;
+                this.msgOpt.show = false;
+            } else {
+                this.msgOpt.index = i;
+                this.msgOpt.show = true;
+            }
         }
     }
 

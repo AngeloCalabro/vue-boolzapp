@@ -209,12 +209,7 @@ i {
     text-align: center;
     padding: 0 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    top: -0.5 px;
+    top: 20px;
     right: 0;
-    display: none;
     cursor: pointer;
-}
-
-.delete:hover .box-menu {
-    display: block;
 }
